@@ -1,0 +1,7 @@
+# Archivos compilados
+**/bin/
+**/obj/
+**/Properties/
+*.sln
+*.config
+*csproj
