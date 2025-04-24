@@ -8,11 +8,11 @@
  */
 using System;
 
-namespace Practica_1
+namespace Practica_2
 {
 	/// <summary>
 	/// Description of ColeccionMultiple.
-	/// </summary> //EJERCICIO 8 Práctica 1
+	/// </summary> EJERCICIO 8 Práctica 1
 	public class ColeccionMultiple : Coleccionable
 	{
 		private Pila pila;

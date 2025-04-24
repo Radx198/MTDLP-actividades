@@ -16,7 +16,7 @@ namespace Practica_1
 		
 		public static void Main(string[] args)
 		{
-			//EJERCICIO 7 Y 9
+			//EJERCICIO 7 Y 9 Práctica 1
 			Pila pila = new Pila();
 			Cola cola = new Cola();
 			ColeccionMultiple multiple = new ColeccionMultiple(pila, cola);
@@ -39,13 +39,13 @@ namespace Practica_1
 //			informar(cola);
 			informar(multiple);
 			
-			//EJERCICIO 10
+			//EJERCICIO 10 Práctica 1
 			//No tuve que modificar nada de lo realizado en los primeros seis ejercicios.
 	
 			Console.ReadKey(true);
 		}
 		
-		//EJERCICIO 5
+		//EJERCICIO 5 Práctica 1
 		static public void llenar(Coleccionable coleccion)
 		{
 			Random rnd = new Random();
@@ -54,31 +54,20 @@ namespace Practica_1
 		}
 		
 		
-//		Ejercicio 6
+//		Ejercicio 6 Práctica 1
 		static public void informar(Coleccionable coleccion)
 		{
-			Console.WriteLine("\nCantidad: " + coleccion.cuantos());
+			Console.WriteLine("\nCantidad : " + coleccion.cuantos());
+			Console.WriteLine("Minimo :" + coleccion.minimo().ToString());
+			Console.WriteLine("Maximo: " + coleccion.maximo().ToString());
+
 			
-			Comparable minimo = coleccion.minimo();
-			Comparable maximo = coleccion.maximo();
-			
-			if(maximo is Alumno)
-			{
-				Console.WriteLine("Minimo: " + ((Alumno)minimo).getLegajo().GetValor());
-				Console.WriteLine("Maximo: " + ((Alumno)maximo).getLegajo().GetValor());
-			}
-			else if (maximo is Numero)
-			{
-				Console.WriteLine("Minimo: " + ((Numero)minimo).GetValor());
-				Console.WriteLine("Maximo: " + ((Numero)maximo).GetValor());
-			}
-			
-			
+			Console.WriteLine("Ingrese un valor para confirmar si se encuentra en la coleccion: ");
 			string input= Console.ReadLine();
 			int output;
+
 //			//si el usuario ingreso un numero, retorna true y se guarda la variable input en una variable entera, caso contrario retorna false
-			
-			if(maximo is Numero)
+			if(coleccion.maximo() is Numero)
 				Console.WriteLine(int.TryParse(input, out output) && coleccion.contiene(new Numero(output)) ?
 				                  "El elemento leído está en la colección" : "El elemento leído no está en la colección");
 			else
@@ -86,7 +75,7 @@ namespace Practica_1
 				                  "El elemento leído está en la colección" : "El elemento leído no está en la colección");
 		}
 		
-		//EJERCICIO 13
+		//EJERCICIO 13 Práctica 1
 		static public void llenarAlumnos(Coleccionable coleccion)
 		{
 			Random rnd = new Random();

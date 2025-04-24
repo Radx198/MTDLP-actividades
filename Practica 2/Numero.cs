@@ -7,25 +7,9 @@
  * To change this template use Tools | Options | Coding | Edit Standard Headers.
  */
 
-
-/*
- * Ejercicio 2
-Implemente la clase Numero:
-Numero
-valor
-constructor(v)
-getValor
- Es una variable que almacena un
-número entero
- Es el constructor de la clase que
-recibe un valor “v” y lo almacena en la
-variable “valor”
- Devuelve la variable “valor”
-Haga que la clase Numero implemente la interface Comparable.
- */
 using System;
 
-namespace Practica_1
+namespace Practica_2
 {
 	/// <summary>
 	/// Description of Numero.

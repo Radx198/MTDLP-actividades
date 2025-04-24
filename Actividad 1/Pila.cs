@@ -13,7 +13,7 @@ namespace Practica_1
 	/// <summary>
 	/// Description of Pila.
 	/// </summary>
-	/// EJERCICIO 4
+	/// EJERCICIO 4 Práctica 1
 	public class Pila : Coleccionable
 	{
 		private List<Comparable> lista;

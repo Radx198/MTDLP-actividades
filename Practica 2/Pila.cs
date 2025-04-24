@@ -2,39 +2,51 @@
  * Created by SharpDevelop.
  * User: loren
  * Date: 23/3/2025
- * Time: 13:51
+ * Time: 12:31
  * 
  * To change this template use Tools | Options | Coding | Edit Standard Headers.
  */
 using System;
 using System.Collections.Generic;
-namespace Practica_1
+namespace Practica_2
 {
 	/// <summary>
-	/// Description of Cola.
-	/// </summary> //EJERCICIO 4 Práctica 1
-	public class Cola : Coleccionable
-	{
+	/// Description of Pila.
+	/// </summary>
+	/// EJERCICIO 4 Práctica 1
+	public class Pila : Coleccionable, Iterable //EJERCICIO 5 Práctica 2
+	{ 
 		private List<Comparable> lista;
-		public Cola()
+		public Pila()
 		{
 			lista = new List<Comparable>();
 		}
 		
-		//Métodos comunes en una estructura de datos cola(enqueue)
-		public void Encolar(Comparable dato){lista.Add(dato);}
-		public Comparable Desencolar()
-		{
-			Comparable dato = lista[0];
-			lista.RemoveAt(0);
-			return dato;
-		}
-		public Comparable peek(){return lista[0];}
-		public bool EstaVacia(){return lista.Count == 0;}
+		//Métodos comunes en una estructura de datos pila(stack)
+		public void Apilar(Comparable dato){lista.Add(dato);}
+		public Comparable Top(){return lista[lista.Count-1];}
+		public bool EstaVacia(){return lista.Count==0;}
 		public void Limpiar(){lista.Clear();}
 		
-		//Métodos implementados de la interfaz Coleccionable
+		public Comparable Desapilar()
+		{
+			Comparable dato = lista[lista.Count-1];
+			lista.RemoveAt(lista.Count-1);
+			return dato;
+		}
+		
+		
+		//Método implementado por la interfaz Iterable
+		public Iterador crearIiterador()
+		{
+			return new IteradorDeListas(lista);
+		}
+		
+		
+		
+		//métodos implementados por la interfaz Coleccionable
 		public int cuantos(){return lista.Count;}
+		
 		public Comparable minimo()
 		{
 			Comparable minimo = lista[0];
@@ -48,20 +60,23 @@ namespace Practica_1
 			Comparable maximo = lista[0];
 			foreach(Comparable c in lista)
 				if(maximo.sosMenor(c))
+			{
 					maximo = c;
+			}
 			return maximo;
 		}
 		public void agregar(Comparable comparable)
 		{
-			Encolar(comparable);
+			Apilar(comparable);
 		}
 		public bool contiene(Comparable comparable)
 		{
 			foreach(Comparable c in lista)
-				if(comparable.sosIgual(c))
+			{
+				if(c.sosIgual(comparable))
 					return true;
+			}
 			return false;
 		}
-		
 	}
 }

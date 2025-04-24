@@ -8,12 +8,12 @@
  */
 using System;
 using System.Collections.Generic;
-namespace Practica_1
+namespace Practica_2
 {
 	/// <summary>
 	/// Description of Cola.
 	/// </summary> //EJERCICIO 4 Práctica 1
-	public class Cola : Coleccionable
+	public class Cola : Coleccionable, Iterable // EJERCICIO Práctica 2
 	{
 		private List<Comparable> lista;
 		public Cola()
@@ -32,6 +32,14 @@ namespace Practica_1
 		public Comparable peek(){return lista[0];}
 		public bool EstaVacia(){return lista.Count == 0;}
 		public void Limpiar(){lista.Clear();}
+		
+		
+		//Método implementado por la interfaz Iterable
+		public Iterador crearIiterador()
+		{
+			return new IteradorDeListas(lista);
+		}
+		
 		
 		//Métodos implementados de la interfaz Coleccionable
 		public int cuantos(){return lista.Count;}

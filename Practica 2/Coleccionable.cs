@@ -8,7 +8,7 @@
  */
 using System;
 
-namespace Practica_1
+namespace Practica_2
 {
 	/// <summary>
 	/// Description of Coleccionable.
