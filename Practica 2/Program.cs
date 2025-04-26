@@ -56,6 +56,13 @@ namespace Practica_2
 				i.siguiente();
 			}
 		}
+		//EJERCICIO 5 Práctica 1
+		static public void llenar(Coleccionable coleccion)
+		{
+			Random rnd = new Random();
+			for(int i=0; i<20; i++)
+				coleccion.agregar(new Numero(rnd.Next(-100,101)));
+		}
 		
 		//EJERCICIO 6, Práctica 2
 		static public void imprimirElementos (Iterable coleccionable)
