@@ -15,6 +15,15 @@ namespace Practica_4
 	/// </summary>
 	public class FabricaDeProfesores : FabricaDeComparables //EJERCICIO 9 Práctica 3
 	{
+		public override Comparable crearAleatorio()
+		{
+			return new Profesor(gen.stringAleatorio(5), new Numero(gen.numeroAleatorio(5)), new Numero(gen.numeroAleatorio(5)));
+		}
+		public override Comparable crearPorTeclado()
+		{
+			return new Profesor(lec.stringPorTeclado(), new Numero(lec.numeroPorTeclado()), new Numero(lec.numeroPorTeclado()));
+		}
+		
 		public override Comparable crearComparable()
 		{
 			string nombre = Console.ReadLine();

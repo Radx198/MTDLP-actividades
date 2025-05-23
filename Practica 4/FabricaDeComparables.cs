@@ -15,47 +15,37 @@ namespace Practica_4
 	/// </summary> // EJERCICIO 4 Práctica 3
 	public abstract class FabricaDeComparables
 	{
+		protected GeneradorDeDatosAleatorios gen = new GeneradorDeDatosAleatorios();
+		protected LectorDeDatos lec = new LectorDeDatos();
+		
+
 		public static Comparable  crearAleatorio(string opcion)
 		{
-			Random rnd = new Random();
+			FabricaDeComparables fabrica = null;
 			switch(opcion)
 			{
-				case "1" :
-					return new Numero(rnd.Next(-100,101));
-					
-				case "2":
-					return new Alumno("nombre " + rnd.Next(100), new Numero(40000 + rnd.Next(0,9999)), new Numero(rnd.Next(500,1500)), new Numero(rnd.Next(1,11)));
-				case "3":
-					return new Profesor("Profesor " + rnd.Next(100), new Numero(40000 + rnd.Next(0,9999)), new Numero(rnd.Next(0,15)));
+					case "1" : fabrica = new FabricaDeNumeros(); break;
+					case "2": fabrica = new FabricaDeAlumnos(); break;
+					case "3": fabrica = new FabricaDeProfesores(); break;
 				default:
 					throw new ArgumentException("Opcion invalida.");
 			}
+			return fabrica.crearAleatorio();
 		}
 		public static Comparable crearPorTeclado(string opcion)
 		{
-			Comparable c = null;
-			if (opcion=="1")
+			FabricaDeComparables fabrica = null;
+			switch(opcion)
 			{
-				c = new Numero(PedirNumero("numero"));
+					case "1" : fabrica = new FabricaDeNumeros(); break;
+					case "2": fabrica = new FabricaDeAlumnos(); break;
+					case "3": fabrica = new FabricaDeProfesores(); break;
+				default:
+					throw new ArgumentException("Opcion invalida.");
 			}
-			if (opcion=="2")
-			{
-				Console.Write("Ingrese un nombre: ");
-				string nombre = Console.ReadLine();
-				int dni = PedirNumero("DNI");
-				int legajo = PedirNumero("legajo");
-				int promedio = PedirNumero("promedio");
-				c = new Alumno(nombre, new Numero(dni), new Numero(legajo), new Numero(promedio));
-			}
-			if (opcion =="3")
-			{
-				string nombre = Console.ReadLine();
-				int dni = PedirNumero("DNI");
-				int antiguedad = PedirNumero("años de antigudad");
-				c = new Profesor(nombre, new Numero(dni), new Numero(antiguedad));
-			}
-			return c;
+			return fabrica.crearPorTeclado();
 		}
+		
 		public static Comparable crearComparable(string opcion) //EJERCICIO 5 Práctica 3
 		{
 			FabricaDeComparables c = null;
@@ -69,6 +59,8 @@ namespace Practica_4
 			return c.crearComparable();
 		}
 		
+		public abstract Comparable crearAleatorio();
+		public abstract Comparable crearPorTeclado();
 		public abstract Comparable crearComparable();
 		
 		

@@ -15,6 +15,15 @@ namespace Practica_4
 	/// </summary>
 	public class FabricaDeNumeros : FabricaDeComparables
 	{
+		public override Comparable crearAleatorio()
+		{
+			return new Numero(gen.numeroAleatorio(10));
+		}
+		public override Comparable crearPorTeclado()
+		{
+			return new Numero(lec.numeroPorTeclado());
+		}
+		
 		public override Comparable crearComparable() //EJERCICIO 5 Práctica 3
 		{
 			return new Numero(PedirNumero("numero"));
