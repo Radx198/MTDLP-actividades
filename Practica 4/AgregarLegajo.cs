@@ -12,7 +12,7 @@ namespace Practica_4
 {
 	/// <summary>
 	/// Description of AgregarLegajo.
-	/// </summary>
+	/// </summary> EJERCICIO 6 Práctica 4
 	public class AgregarLegajo : AdicionalDecorator
 	{
 		public AgregarLegajo(IMostrarCalificacion calificacion) : base(calificacion)
@@ -21,7 +21,7 @@ namespace Practica_4
 		}
 		public override string mostrarCalificacion()
 		{
-			return calificacion.mostrarCalificacion() + "777777777";
+			return calificacion.getNombre() +  "("+calificacion.getLegajo()+")" + "       " + calificacion.getCalificacion();
 		}
 
 	}

@@ -29,6 +29,7 @@ namespace Practica_4
 			comparacion = new PorNombre();
 			observadorAlumnoFavorito = new List<IObservador>();
 		}
+	
 		public Numero getLegajo(){return legajo;}
 		
 		public Numero getPromedio(){return promedio;}
@@ -43,10 +44,10 @@ namespace Practica_4
 		
 		public virtual int responderPregunta(int pregunta){return new Random().Next(1,4);}
 		
-		public string mostrarCalificacion(){return getNombre() + "       " + getCalificacion();}
+		public virtual string mostrarCalificacion(){return getNombre() + "       " + getCalificacion();}
 		
 	
-		
+		public virtual Alumno getAlumno(){return this;}
 		//EJERCICIO 15 Práctica 1
 		//métodos implementados por la interfaz Comparable
 		

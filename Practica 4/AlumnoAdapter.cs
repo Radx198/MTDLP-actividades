@@ -15,8 +15,8 @@ namespace Practica_4
 	/// </summary>
 	public class AlumnoAdapter : Student
 	{
-		public Alumno _alumno;
-		public AlumnoAdapter(Alumno alumno)
+		public IMostrarCalificacion _alumno;
+		public AlumnoAdapter(IMostrarCalificacion alumno)
 		{
 			this._alumno = alumno;
 		}
@@ -26,9 +26,9 @@ namespace Practica_4
 		
 		public void setScore(int score){_alumno.setCalificacion(new Numero(score));}
 		
-		public string showResult(){return ((IMostrarCalificacion)_alumno).mostrarCalificacion();}
+		public string showResult(){return _alumno.mostrarCalificacion();}
 		
-		public Alumno getAlumno(){return _alumno;} // Si no se implementa este método, los métodos de comparación se compararán
+		public IMostrarCalificacion getAlumno(){return _alumno.getAlumno();} // Si no se implementa este método, los métodos de comparación se compararán
 		// con un Alumno y un AlumnoAdapter
 		
 		public bool equals(Student student){return _alumno.sosIgual(((AlumnoAdapter)student).getAlumno());}

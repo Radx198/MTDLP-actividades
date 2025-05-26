@@ -13,9 +13,28 @@ namespace Practica_4
 	/// <summary>
 	/// Description of IMostrarCalificacion.
 	/// </summary>
-	public interface IMostrarCalificacion
+	public interface IMostrarCalificacion : Comparable
 	{
 		string mostrarCalificacion();
-			
+		
+		string getNombre();
+		
+		Alumno getAlumno();
+		Numero getDNI();
+		Numero getLegajo();
+		Numero getPromedio();
+		
+		string ToString();
+		Numero getCalificacion();
+		
+		void setComparacion(PoliticaComparacion nuevaPolitica);
+		
+		void setCalificacion(Numero calificacion);
+		
+		int responderPregunta(int pregunta);
+		
+		bool sosIgual(Comparable comparable);
+		bool sosMenor(Comparable comparable);
+		bool sosMayor(Comparable comparable);
 	}
 }

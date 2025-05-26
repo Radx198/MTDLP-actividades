@@ -14,11 +14,6 @@ namespace Practica_4
 	{
 		public static void Main(string[] args)
 		{
-//			IMostrarCalificacion alumno = (Alumno)FabricaDeAlumnos.crearAleatorio("2"); 
-//			alumno = new AgregarLegajo(alumno);
-//			Console.WriteLine(alumno.mostrarCalificacion());
-			
-			
 			iniciarClase();
 			Console.ReadKey(true);
 		}
@@ -27,15 +22,23 @@ namespace Practica_4
 			Teacher teacher = new Teacher();
 			for(int i = 0; i<10; i++)
 			{
-				IMostrarCalificacion alumno = (Alumno)FabricaDeAlumnos.crearAleatorio("2"); 
-				alumno = new AgregarLegajo(alumno);
-				teacher.goToClass(new AlumnoAdapter((Alumno)alumno));
+				IMostrarCalificacion alumno = (Alumno)FabricaDeAlumnos.crearAleatorio("2");
+				alumno = new AgregarLegajo(alumno); //EJERCICIO 7 Práctica 4
+				alumno = new AgregarLetras(alumno);
+				alumno = new AgregarEtadoNota(alumno);
+				alumno = new AgregarRecuadro(alumno);
+				teacher.goToClass(new AlumnoAdapter(alumno));
 			}
 			for(int i = 0; i<10; i++)
 			{
-				Alumno alumno = (Alumno)FabricaDeComparables.crearAleatorio("2");
-				AlumnoMuyEstudioso al = new AlumnoMuyEstudioso(alumno.getNombre(), alumno.getDNI(), alumno.getLegajo(), alumno.getPromedio());
+				IMostrarCalificacion alumno = (Alumno)FabricaDeAlumnos.crearAleatorio("2");
+
 				
+			    IMostrarCalificacion al = new AlumnoMuyEstudioso(alumno.getNombre(), alumno.getDNI(), alumno.getLegajo(), alumno.getPromedio());
+				al = new AgregarLegajo(al); //EJERCICIO 7 Práctica 4
+				al = new AgregarLetras(al);
+				al = new AgregarEtadoNota(al);
+				al = new AgregarRecuadro(al);
 				
 				teacher.goToClass(new AlumnoAdapter(al));
 			}

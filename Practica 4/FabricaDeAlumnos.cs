@@ -17,7 +17,7 @@ namespace Practica_4
 	{
 		public override Comparable crearAleatorio()
 		{
-			return new Alumno(gen.stringAleatorio(5), new Numero(gen.numeroAleatorio(5)), new Numero(gen.numeroAleatorio(5)), new Numero(gen.numeroAleatorio(5)));
+			return new Alumno(gen.stringAleatorio(5), new Numero(gen.numeroAleatorio(40000)), new Numero(gen.numeroAleatorio(1000)), new Numero(gen.numeroAleatorio(10)));
 		}
 		public override Comparable crearPorTeclado()
 		{
